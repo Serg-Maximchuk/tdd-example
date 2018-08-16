@@ -3,6 +3,7 @@ package com.example.tdd.persistence.entity;
 import com.example.tdd.model.User;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,10 +18,20 @@ public class UserJPA extends User {
         super(from);
     }
 
+    public UserJPA(String email) {
+        this.email = email;
+    }
+
     @Id
     @GeneratedValue
     @Override
     public Long getId() {
-        return id;
+        return super.getId();
+    }
+
+    @Column(unique = true, nullable = false)
+    @Override
+    public String getEmail() {
+        return super.getEmail();
     }
 }

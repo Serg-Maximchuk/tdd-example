@@ -1,6 +1,5 @@
 package com.example.tdd.persistence.repository;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +10,17 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
 @Transactional
-class UserRepositoryTest {
+@SpringBootTest
+class TweetRepositoryTest {
+
+    @Autowired
+    private TweetRepository tweetRepository;
 
     @Autowired
     private UserRepository userRepository;
 
-    @BeforeEach
-    void setUp() {
-        userRepository.deleteAll();
-        userRepository.flush();
-    }
-
     @Test
     void name() {
-
     }
 }
